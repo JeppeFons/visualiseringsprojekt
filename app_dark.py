@@ -38,8 +38,8 @@ filtered_df = df[(df['year'] >= years[0]) & (df['year'] <= years[1]) & (df['regi
 if st.sidebar.checkbox("Vis Missing Data Heatmap"):
     st.subheader("Missing Values Heatmap")
     fig, ax = plt.subplots(figsize=(14,6))
-    fig.patch.set_facecolor('#0e1117')  # fig baggrund
-    ax.set_facecolor('#0e1117')          # plot baggrund
+    fig.patch.set_facecolor('#0e1117')
+    ax.set_facecolor('#0e1117')
     sns.heatmap(filtered_df.isnull(), cbar=False, cmap='viridis', ax=ax)
     ax.title.set_color('white')
     ax.xaxis.label.set_color('white')
@@ -74,7 +74,7 @@ if st.sidebar.checkbox("Vis GDP vs CO2 Emissioner"):
         size='population', color='income_group', hover_name='country_name',
         title='GDP per Capita vs CO2 Emissions per Capita',
         size_max=60, log_x=True, log_y=True,
-        template='plotly_dark'  # mørkt tema
+        template='plotly_dark'
     )
     st.plotly_chart(fig)
 
@@ -114,4 +114,18 @@ if st.sidebar.checkbox("Vis CO2 Emissioner vs Vedvarende Energi"):
 
     plt.title('CO2 Emissions vs Renewable Energy Over Time', color='white')
     fig.tight_layout()
+    st.pyplot(fig)
+
+# --- CO2 Intensity per Region ---
+if st.sidebar.checkbox("Vis CO2 Intensity per Million GDP by Region"):
+    st.subheader("CO2 Intensity per Million GDP by Region")
+    fig, ax = plt.subplots(figsize=(12, 6))
+    fig.patch.set_facecolor('#0e1117')
+    ax.set_facecolor('#0e1117')
+    sns.boxplot(data=filtered_df, x='region', y='co2_intensity_per_million_gdp', ax=ax)
+    ax.set_title('CO2 Intensity per Million GDP by Region', color='white')
+    ax.set_xlabel('Region', color='white')
+    ax.set_ylabel('CO2 Intensity per Million GDP', color='white')
+    ax.tick_params(colors='white')
+    plt.setp(ax.get_xticklabels(), rotation=45, ha="right", color='white')
     st.pyplot(fig)
