@@ -1,0 +1,15 @@
+# Python cache og bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Miljøfiler og secrets
+.env
+*.env
+
+# Data
+data/
+*.csv
+*.tsv
+*.xlsx
