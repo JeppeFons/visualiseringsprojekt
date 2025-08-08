@@ -1,3 +1,8 @@
+**kør nedenstående kode i powershell for at starte appen:**
+streamlit run c:/Job_og_eksamensbevis/Github/projekter/visualisering_projekt/app_dark.py
+
+
+
 1. Forstå datastrukturen
 
 fokus på CO2 udslip
@@ -75,5 +80,3 @@ data:
 https://www.kaggle.com/datasets/michaelmatta0/global-development-indicators-2000-2020 
 
 
-**kør nedenstående kode i powershell for at starte appen:**
-streamlit run c:/Job_og_eksamensbevis/Github/projekter/visualisering_projekt/app_dark.py
